@@ -1,0 +1,34 @@
+import { Injectable } from '@angular/core';
+// import { Producto } from 'src/app/clases/producto';
+import { MiservicioPrincipalService } from '../miservicioPrincipal/miservicio-principal.service';
+import { Producto } from 'src/app/clases/producto';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductosService {
+
+  constructor(private httpClient: MiservicioPrincipalService) {}
+
+  //  public TraerUno(id: number): {
+  //   return this.httpClient.GetHttp('actores/', id);
+  // }
+
+  public TraerTodos() {
+    return this.httpClient.HttpGetAll('producto/listar/');
+  }
+
+  public CrearUno(prod: Producto) {
+    return this.httpClient.PostHttp('actores/', prod);
+  }
+
+  // public ModificarUno(id:number, prod:Actor) {
+  //   return this.httpClient.PutHttp('actores/', id, prod);
+  // }
+
+  public BorrarUno(id: number) {
+    return this.httpClient.DeleteHttp('producto/eliminar/', id);
+  }
+}
+
