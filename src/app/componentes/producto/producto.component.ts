@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/clases/producto';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,7 +14,8 @@ export class ProductoComponent implements OnInit {
 
   public productos: Array<Producto>;
 
-  constructor(private productoServ: ProductosService) { }
+  constructor(private productoServ: ProductosService,
+              private miRouter: Router) { }
 
   ngOnInit() {
     this.productoServ.TraerTodos()
@@ -23,5 +26,10 @@ export class ProductoComponent implements OnInit {
 
     });
   }
+
+AgregarProductoClick(): void {
+  this.miRouter.navigate(['/productos/alta']);
+}
+
 
 }

@@ -20,7 +20,7 @@ export class ProductosService {
   }
 
   public CrearUno(prod: Producto) {
-    return this.httpClient.PostHttp('actores/', prod);
+    return this.httpClient.PostHttp('producto/alta/', prod);
   }
 
   // public ModificarUno(id:number, prod:Actor) {

@@ -16,7 +16,7 @@ export class ProductoAltaComponent implements OnInit {
   public fechaDeVencError: boolean;
   public precioError: boolean;
 
-  constructor(private productoServ: ProductosService, private router: Router) { }
+  constructor(private productoServ: ProductosService, private miRouter: Router) { }
 
   ngOnInit() {
     this.ReestablecerTodo();
@@ -33,8 +33,9 @@ export class ProductoAltaComponent implements OnInit {
   Agregar() {
     if (this.ValidarCampos() != false) {
       this.producto.rutaDeFoto = '../../../assets/imagenes/default.png';
-      this.productoServ.CrearUno(this.producto);
-      alert('Se agregó la Película correctamente!');
+      this.productoServ.CrearUno(this.producto)
+      .subscribe();
+      alert('Se agregó el producto correctamente!');
       this.ReestablecerTodo();
     }
   }
@@ -59,6 +60,10 @@ export class ProductoAltaComponent implements OnInit {
       result = false;
     }
     return result;
+  }
+
+  VolverAProductosClick(): void {
+    this.miRouter.navigate(['/productos']);
   }
 
 
