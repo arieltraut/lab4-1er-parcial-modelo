@@ -9,7 +9,7 @@ import { Producto } from 'src/app/clases/producto';
 })
 export class ProductosService {
 
-  constructor(private httpClient: MiservicioPrincipalService) {}
+  constructor(private httpClient: MiservicioPrincipalService<Producto>) {}
 
   //  public TraerUno(id: number): {
   //   return this.httpClient.GetHttp('actores/', id);
