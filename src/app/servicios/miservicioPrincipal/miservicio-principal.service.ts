@@ -5,7 +5,7 @@ import { Producto } from 'src/app/clases/producto';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'text/plain'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -40,12 +40,12 @@ export class MiservicioPrincipalService<T> {
      .pipe( res => res );
   }
 
-  public PutHttp(url: string, object: T) {
-    console.log(this.urlBase + url);
-    console.log(object);
-    return this.http.put<T>(this.urlBase + url + object, httpOptions);
-    // .toPromise().catch(this.ErrorHandler);
-  }
+  // public PutHttp(url: string, object: T) {
+  //   console.log(this.urlBase + url);
+  //   console.log(object);
+  //   return this.http.put<T>(this.urlBase + url + object, httpOptions);
+  //   // .toPromise().catch(this.ErrorHandler);
+  // }
 
 
 

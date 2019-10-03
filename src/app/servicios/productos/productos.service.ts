@@ -24,7 +24,7 @@ export class ProductosService {
   }
 
   public ModificarUno(prod: Producto) {
-    return this.httpClient.PutHttp('producto/modificar', prod);
+    return this.httpClient.PostHttp('producto/modificar/', prod);
   }
 
   public BorrarUno(id: number) {

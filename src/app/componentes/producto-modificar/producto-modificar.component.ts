@@ -43,10 +43,9 @@ export class ProductoModificarComponent implements OnInit {
 
   Modificar() {
     if (this.ValidarCampos() != false) {
-      this.producto.rutaDeFoto = '../../../assets/imagenes/default.png';
       this.productoServ.ModificarUno(this.producto)
       .subscribe();
-      // alert('Se agregó el producto correctamente!');
+      alert('Se agregó el producto correctamente!');
       this.ReestablecerTodo();
     }
   }
