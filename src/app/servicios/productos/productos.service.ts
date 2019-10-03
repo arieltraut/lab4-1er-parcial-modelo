@@ -23,9 +23,9 @@ export class ProductosService {
     return this.httpClient.PostHttp('producto/alta/', prod);
   }
 
-  // public ModificarUno(id:number, prod:Actor) {
-  //   return this.httpClient.PutHttp('actores/', id, prod);
-  // }
+  public ModificarUno(prod: Producto) {
+    return this.httpClient.PutHttp('producto/modificar', prod);
+  }
 
   public BorrarUno(id: number) {
     return this.httpClient.DeleteHttp('producto/eliminar/', id);

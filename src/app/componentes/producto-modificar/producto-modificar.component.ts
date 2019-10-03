@@ -1,25 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/clases/producto';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-producto-alta',
-  templateUrl: './producto-alta.component.html',
-  styleUrls: ['./producto-alta.component.css']
+  selector: 'app-producto-modificar',
+  templateUrl: './producto-modificar.component.html',
+  styleUrls: ['./producto-modificar.component.css']
 })
-export class ProductoAltaComponent implements OnInit {
+export class ProductoModificarComponent implements OnInit {
 
-  public producto: Producto;
+  public producto: Producto = new Producto();
   public descError: boolean;
   public tipoError: boolean;
   public fechaDeVencError: boolean;
   public precioError: boolean;
 
-  constructor(private productoServ: ProductosService, private miRouter: Router) { }
+  constructor(private productoServ: ProductosService,
+              private traerParametros: ActivatedRoute,
+              private miRouter: Router) {
+    this.traerParametros.queryParams.subscribe(params => {
+      this.producto.id = params.id;
+      this.producto.descripcion = params.descripcion;
+      this.producto.tipo = params.tipo;
+      this.producto.fechaDeVencimiento = params.fechaDeVencimiento;
+      this.producto.precio = params.precio;
+      this.producto.rutaDeFoto = params.rutaDeFoto;
+  });
+              }
 
   ngOnInit() {
-    this.ReestablecerTodo();
+    // this.ReestablecerTodo();
   }
 
   ReestablecerTodo() {
@@ -30,10 +41,10 @@ export class ProductoAltaComponent implements OnInit {
     this.precioError = false;
   }
 
-  Agregar() {
+  Modificar() {
     if (this.ValidarCampos() != false) {
       this.producto.rutaDeFoto = '../../../assets/imagenes/default.png';
-      this.productoServ.CrearUno(this.producto)
+      this.productoServ.ModificarUno(this.producto)
       .subscribe();
       // alert('Se agregó el producto correctamente!');
       this.ReestablecerTodo();

@@ -13,6 +13,7 @@ import { BtnBorrarComponent } from './componentes/btn-borrar/btn-borrar.componen
 import { BuscarInputComponent } from './componentes/buscar-input/buscar-input.component';
 import { BuscarMostrarComponent } from './componentes/buscar-mostrar/buscar-mostrar.component';
 import { ProductoAltaComponent } from './componentes/producto-alta/producto-alta.component';
+import { ProductoModificarComponent } from './componentes/producto-modificar/producto-modificar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductoAltaComponent } from './componentes/producto-alta/producto-alta
     BtnBorrarComponent,
     BuscarInputComponent,
     BuscarMostrarComponent,
-    ProductoAltaComponent
+    ProductoAltaComponent,
+    ProductoModificarComponent
   ],
   imports: [
     BrowserModule,

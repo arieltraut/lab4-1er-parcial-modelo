@@ -6,6 +6,7 @@ import { GrillaComponent } from './componentes/grilla/grilla.component';
 import { BuscarMostrarComponent } from './componentes/buscar-mostrar/buscar-mostrar.component';
 import { BuscarInputComponent } from './componentes/buscar-input/buscar-input.component';
 import { ProductoAltaComponent } from './componentes/producto-alta/producto-alta.component';
+import { ProductoModificarComponent } from './componentes/producto-modificar/producto-modificar.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'grilla', component: GrillaComponent},
   {path: 'busqueda', component: BuscarMostrarComponent},
   {path: 'busqueda-input', component: BuscarInputComponent},
-  {path: 'productos/alta', component: ProductoAltaComponent}
+  {path: 'productos/alta', component: ProductoAltaComponent},
+  {path: 'productos/modificar', component: ProductoModificarComponent}
 ];
 
 @NgModule({

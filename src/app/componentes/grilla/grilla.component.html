@@ -7,7 +7,6 @@
     <th>Vencimiento</th>
     <th>Precio</th>
     <th>Foto</th>
-    <th></th>
   </tr>
   <tr *ngFor="let producto of listadoProductos" >
       <td>{{producto.id}}</td>
@@ -20,7 +19,9 @@
       <td>
         <app-btn-borrar [idProducto] = "producto.id" (borrado)="RefrescarLista($event)"></app-btn-borrar>
       </td>
-
+      <td>
+        <button id="btnMofificar" type="button" class="btn btn-primary pull-right" (click)="IrAModificarClick(producto)">Modificar</button>
+      </td>
   </tr>
 
 </table>

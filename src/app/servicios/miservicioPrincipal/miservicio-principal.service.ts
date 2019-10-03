@@ -5,7 +5,7 @@ import { Producto } from 'src/app/clases/producto';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'text/plain'
   })
 };
 
@@ -18,9 +18,10 @@ export class MiservicioPrincipalService<T> {
 
   constructor( public http: HttpClient ) {}
 
+  // let blabla = {"descripcion": "jugo"};
 
-  public HttpGetAll(metodo: string): Observable<any> { // Observable<T[]>
-    return this.http.get( this.urlBase + metodo )
+  public HttpGetAll(metodo: string): Observable<any[]> { // Observable<T[]>
+    return this.http.get<T[]>( this.urlBase + metodo )
     .pipe( res => res );
   }
 
@@ -35,8 +36,15 @@ export class MiservicioPrincipalService<T> {
   public PostHttp(url: string, object: T) {
     console.log(this.urlBase + url);
     console.log(object);
-    return this.http.post<T>(this.urlBase + url, object, httpOptions);
-    // .pipe( res => res );
+    return this.http.post<T>(this.urlBase + url, object, httpOptions)
+     .pipe( res => res );
+  }
+
+  public PutHttp(url: string, object: T) {
+    console.log(this.urlBase + url);
+    console.log(object);
+    return this.http.put<T>(this.urlBase + url + object, httpOptions);
+    // .toPromise().catch(this.ErrorHandler);
   }
 
 
